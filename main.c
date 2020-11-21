@@ -71,7 +71,6 @@ int main(void)
             }
             else
             {
-                LED_Display(ubKeyNumber);
                 TxData[0] = ubKeyNumber;
                 TxData[1] = 0xAD;
                 if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &TxHeader, TxData) != HAL_OK)
