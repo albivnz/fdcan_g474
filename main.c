@@ -56,6 +56,7 @@ int main(void)
     SystemClock_Config();
     BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
     BSP_LED_Init(LED_GREEN);
+    BSP_LED_Toggle(LED_GREEN);
     MX_GPIO_Init();
     MX_FDCAN1_Init();
     FDCAN_Config();
@@ -236,11 +237,9 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 
 void LED_Display(uint8_t LedStatus)
 {
-    BSP_LED_Off(LED_GREEN);
-
     if(LedStatus == 2)
     {
-        BSP_LED_On(LED_GREEN);
+        BSP_LED_Toggle(LED_GREEN);
     }
 }
 void Error_Handler(void)
